@@ -57,7 +57,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 	 * Método que permite borrar un objeto de tipo Articulo del arraylist, 
 	 * por medio de su id
 	 *  
-	 * @param id, el id del articulo a eliminar del Arraylist
+	 * @param id el id del articulo a eliminar del Arraylist
 	 * @return <b>true</b> en caso de que se haya borrado, <b>false</b> 
 	 * en caso contrario
 	 */
@@ -77,7 +77,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 	 * Método que permite buscar un objeto de tipo Articulo en el arraylist, 
 	 * por medio de su id
 	 *  
-	 * @param id, el id del articulo a buscar en el Arraylist
+	 * @param id el id del articulo a buscar en el Arraylist
 	 * @return el articulo que se quería buscar, null en caso de que no exista
 	 * en el arraylist
 	 */
