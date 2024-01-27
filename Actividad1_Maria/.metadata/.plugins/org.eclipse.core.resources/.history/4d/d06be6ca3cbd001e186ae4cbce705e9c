@@ -1,0 +1,84 @@
+package modelo.negocio;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import modelo.entidad.Articulo;
+
+public class Almacen implements IntGestionArticulos , Serializable{
+
+	
+	private static final long serialVersionUID = -5785878991659280096L;
+	
+	private ArrayList<Articulo> listaArticulos;
+	
+	public Almacen() {
+		listaArticulos = new ArrayList<>();
+	}
+	/**
+	 * Metodo que permite dar de alta un nuevo objeto de tipo Articulo en el ArrayList,
+	 * asignándole un id único.
+	 *  
+	 * @param articulo el objeto de tipo Articulo a dar de alta
+	 * @return <b>true</b> en caso de que el numero sea primo, <b>false</b> 
+	 * en caso de que no
+	 */
+	
+	@Override
+	public Articulo altaArticulo(Articulo articulo) {
+		int id = 1;
+		if (listaArticulos.isEmpty()) {
+			articulo.setId(id);
+			listaArticulos.add(articulo);
+			return articulo;
+		} else {
+			
+			for (Articulo a: listaArticulos) {
+				if(articulo.getNombre().equalsIgnoreCase(a.getNombre())&& articulo.getDescripcion().equalsIgnoreCase(a.getDescripcion())) {
+					return null;
+				}
+				while(a.getId() == id) {
+					id++;
+				}
+			}
+			articulo.setId(id);
+			listaArticulos.add(articulo);
+			return articulo;
+			}
+		}
+	
+
+	@Override
+	public Boolean borrarArticulo(int id) {
+		Articulo a = new Articulo();
+		a.setId(id);
+		int posicion = listaArticulos.indexOf(a);
+		if(posicion == -1) {
+			return false;
+		} else {
+			listaArticulos.remove(posicion);
+			return true;
+		}
+	}
+
+	@Override
+	public Articulo buscarArticulo(int id) {
+		
+		Articulo a = new Articulo();
+		a.setId(id);
+		int posicion = listaArticulos.indexOf(a);
+		
+		if(posicion == -1) {
+			return null;
+		} else {
+			return listaArticulos.get(posicion);
+		}
+		
+	}
+
+	@Override
+	public ArrayList<Articulo> buscarTodos() {
+		return listaArticulos;
+	}
+
+}

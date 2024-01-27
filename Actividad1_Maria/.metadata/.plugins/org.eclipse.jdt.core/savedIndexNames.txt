@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\María\Desktop\Acceso a datos\Actividad1\.metadata\.plugins\org.eclipse.jdt.core
+3754306966.index
+3501714628.index
+1865797976.index
