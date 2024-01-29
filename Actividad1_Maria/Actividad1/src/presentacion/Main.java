@@ -99,6 +99,7 @@ public class Main {
 						e.printStackTrace();
 					}
 				}
+				System.out.println("Archivo csv creado correctamente.");
 			} catch (IOException e1) {
 				System.out.println("Error al abrir el fichero");
 				e1.printStackTrace();

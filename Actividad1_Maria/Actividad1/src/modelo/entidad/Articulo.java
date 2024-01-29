@@ -32,7 +32,7 @@ public class Articulo implements Serializable{
 	@Override
 	public String toString() {
 		return "Articulo [nombre=" + nombre + ", descripcion=" + descripcion + ", id=" + id + ", stock=" + stock
-				+ ", precio=" + precio + "]";
+				+ ", precio=" + precio + "]\n" ;
 	}
 	
 	//Equals y hashCode 
