@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import modelo.entidad.Articulo;
@@ -54,9 +55,9 @@ public class Main {
 			Articulo a = pedirDatosArticulo();
 			Articulo a1 = almacen.altaArticulo(a);
 			if (a1==null)
-				System.out.println("El artículo " + a + " ya se encuentra almacenado.");
+				System.out.println("Ya existe otro artículo almacenado con el mismo nombre y descripción que " + a + ".");
 			else 
-				System.out.println("Artículo añadido.");
+				System.out.println("Artículo añadido: " + a);
 			break;
 		case 2:
 			System.out.println("Introduzca el id del artículo a eliminar:");
@@ -77,7 +78,8 @@ public class Main {
 				System.out.println("Artículo consultado: " + a2);
 			break;
 		case 4:
-			System.out.println(almacen.buscarTodos());			
+			System.out.println(almacen.buscarTodos());	
+			
 			break;
 		case 5:
 			try(FileOutputStream fichero = new FileOutputStream("articulos.csv");
@@ -114,6 +116,7 @@ public class Main {
 			System.out.println("Guardando los datos en el fichero...");
 			try(FileOutputStream fos = new FileOutputStream(fn);
 					ObjectOutputStream oos = new ObjectOutputStream(fos);){
+				
 				oos.writeObject(almacen);
 				System.out.println("Datos guardados");
 			} catch (FileNotFoundException e) {

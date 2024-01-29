@@ -12,6 +12,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 	
 	private ArrayList<Articulo> listaArticulos;
 	
+	
 	public Almacen() {
 		listaArticulos = new ArrayList<>();
 	}
@@ -26,7 +27,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 	@Override
 	public Articulo altaArticulo(Articulo articulo) {
 		int id = 1;
-		
+		Articulo art = null;
 		//Comprobamos si el arraylist está vacío, si es así añadimos el artículo
 		if (listaArticulos.isEmpty()) {
 			articulo.setId(id);
@@ -34,6 +35,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 			return articulo;
 		} else {
 			//Si el arraylist está vacío, lo recorremos
+			
 			for (Articulo a: listaArticulos) {
 				/*Comprobamos si existe algún artículo en el arraylist con el mismo nombre y descripción, 
 				 *ya que en tal caso, consideramos que es el mismo que estamos introduciendo
@@ -42,12 +44,11 @@ public class Almacen implements IntGestionArticulos , Serializable{
 				if(articulo.getNombre().equalsIgnoreCase(a.getNombre())&& articulo.getDescripcion().equalsIgnoreCase(a.getDescripcion())) {
 					return null;
 				}
-				while(a.getId() == id) {
-					id++;
-				}
+				id = a.getId()+1;
+				articulo.setId(id);
 			}
 			//Asignamos el id al artículo a añadir
-			articulo.setId(id);
+			
 			listaArticulos.add(articulo);
 			return articulo;
 			}
@@ -103,6 +104,7 @@ public class Almacen implements IntGestionArticulos , Serializable{
 	 */
 	@Override
 	public ArrayList<Articulo> buscarTodos() {
+		
 		return listaArticulos;
 	}
 
